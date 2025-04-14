@@ -42,55 +42,64 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center mt-10 bg-white p-6 rounded-lg shadow-md w-80 m-auto">
-      <h2 className="text-xl font-semibold mb-4">Login</h2>
-      <input
-        className="p-2 border rounded w-full mb-2"
-        type="text"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        className="p-2 border rounded w-full mb-2"
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <h2 className="text-lg mb-2">Select Your Role</h2>
-      <select
-        className="p-2 border rounded w-full mb-2"
-        value={role}
-        onChange={(e) => setRole(e.target.value)}
-      >
-        <option value="admin">Admin</option>
-        <option value="client">Client</option>
-      </select>
-      {role === "client" && (
+    <div className="min-h-screen flex items-center justify-center bg-gray-950">
+      <div className="flex flex-col items-center bg-gray-900 p-6 rounded-2xl shadow-lg shadow-black/40 w-80">
+        <h2 className="text-xl font-semibold text-white mb-4">Login</h2>
+  
         <input
-          className="p-2 border rounded w-full mb-2"
+          className="p-2 border border-gray-700 bg-gray-800 text-gray-200 rounded w-full mb-2 placeholder-gray-400"
           type="text"
-          placeholder="Tenant group"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-      )}
-      {role === "admin" && (
+  
         <input
-          className="p-2 border rounded w-full mb-2"
-          type="text"
-          placeholder="Corp name"
-          value={tenant}
-          onChange={(e) => setTenant(e.target.value)}
+          className="p-2 border border-gray-700 bg-gray-800 text-gray-200 rounded w-full mb-2 placeholder-gray-400"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-      )}
-      <button
-        className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded w-full mt-2"
-        onClick={e=> handleLogin(e)}
-      >
-        Login
-      </button>
+  
+        <h2 className="text-lg text-white mb-2">Select Your Role</h2>
+        <select
+          className="p-2 border border-gray-700 bg-gray-800 text-gray-200 rounded w-full mb-2"
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+        >
+          <option value="admin">Admin</option>
+          <option value="client">Client</option>
+        </select>
+  
+        {role === "client" && (
+          <input
+            className="p-2 border border-gray-700 bg-gray-800 text-gray-200 rounded w-full mb-2 placeholder-gray-400"
+            type="text"
+            placeholder="Tenant group"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        )}
+  
+        {role === "admin" && (
+          <input
+            className="p-2 border border-gray-700 bg-gray-800 text-gray-200 rounded w-full mb-2 placeholder-gray-400"
+            type="text"
+            placeholder="Corp name"
+            value={tenant}
+            onChange={(e) => setTenant(e.target.value)}
+          />
+        )}
+  
+        <button
+          className="bg-rose-900 hover:bg-rose-800 text-white p-2 rounded w-full mt-2 font-semibold shadow shadow-rose-900/40"
+          onClick={(e) => handleLogin(e)}
+        >
+          Login
+        </button>
+      </div>
     </div>
   );
+  
 }
